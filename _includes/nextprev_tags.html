@@ -9,7 +9,7 @@
 {% assign postlang = post.path | split: '/' | first %}
 
 	{% if currentPostFound and post.slug != 'timeline' and post.slug != 'tagpage' and post.date <= page.date %}
-	<li class="prevtag"><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="previous {{ pagetag }}">&larr;{{ post.title | truncate:15, '...' }}</a></li>
+	<li class="prevtag"><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="previous {{ pagetag }}">&larr;{{ post.title }}</a></li>
 	{% break %}
 	{% endif %}
 
