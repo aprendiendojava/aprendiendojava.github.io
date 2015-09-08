@@ -1,0 +1,31 @@
+{% assign posts = site.posts %}
+
+{% assign currentPostFound = false %}
+{% for post in posts %}
+{% assign postlang = post.path | split: '/' | first %}
+
+	{% if currentPostFound and postlang == pagelang and post.slug != 'timeline' and post.slug != 'tagpage' and post.date <= page.date %}
+	<li><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="previous">&larr;{{ post.title | truncate:15, '...' }}</a></li>
+	{% break %}
+	{% endif %}
+
+	{% if page.id == post.id %}
+	{% assign currentPostFound = true %}
+	{% endif %}
+
+{% endfor %}
+
+{% assign currentPostFound = false %}
+{% for post in posts reversed %}
+{% assign postlang = post.path | split: '/' | first %}
+
+	{% if currentPostFound and postlang == pagelang and post.slug != 'timeline' and post.slug != 'tagpage' and post.date >= page.date %}
+	<li><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title | truncate:15, '...' }}&rarr;</a></li>
+	{% break %}
+	{% endif %}
+
+	{% if page.id == post.id %}
+	{% assign currentPostFound = true %}
+	{% endif %}
+
+{% endfor %}

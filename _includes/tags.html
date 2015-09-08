@@ -1,0 +1,33 @@
+<section id="timeline">
+
+<header>
+</header>
+
+{% assign listedtag = page.title | downcase %}
+{% for tag_posts in site.tags %}
+{% assign tag = tag_posts | first %}
+{% assign posts = tag_posts | last  %}
+
+	{% if tag == listedtag %}
+		{% for post in posts %}
+
+		{% assign curtag=page.title | downcase %}
+		{% assign listedin=page.slug %}
+		{% assign page=post %}
+		{% include post.html %}
+		{% break %}
+
+		{% endfor %}
+		{{ break }}
+	{% endif %}
+
+{% endfor %}
+
+<script type="text/javascript">
+$('#timeline').jscroll({
+	contentSelector: '.post',
+	nextSelector: '.previous.{{ listedtag }}'
+});
+</script>
+</section>
+

@@ -1,0 +1,24 @@
+{% for tag_posts in site.tags %}
+{% assign tag=tag_posts | first %} 
+{% assign posts=tag_posts | last %}
+	{% for pagetag in page.tags %}
+		{% if pagetag == tag %}
+
+{% assign currentPostFound = false %}
+{% for post in posts %}
+{% assign postlang = post.path | split: '/' | first %}
+
+	{% if currentPostFound and post.slug != 'timeline' and post.slug != 'tagpage' and post.date <= page.date %}
+	<li class="prevtag"><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="previous {{ pagetag }}">&larr;{{ post.title | truncate:15, '...' }}</a></li>
+	{% break %}
+	{% endif %}
+
+	{% if page.id == post.id %}
+	{% assign currentPostFound = true %}
+	{% endif %}
+
+{% endfor %}
+
+		{% endif %}
+	{% endfor %}
+{% endfor %}

@@ -1,0 +1,24 @@
+<section id="timeline">
+
+<header>
+</header>
+
+{% for post in site.posts %}
+{% assign postlang = post.path | split: '/' | first %}
+	{% if post.slug != 'timeline' and postlang == pagelang %}
+
+	{% assign page=post %}
+	{% include post.html %}
+	{% break %}
+
+	{% endif %}
+{% endfor %}
+
+<script type="text/javascript">
+$('#timeline').jscroll({
+	contentSelector: '.post',
+	nextSelector: '.previous'
+});
+</script>
+</section>
+

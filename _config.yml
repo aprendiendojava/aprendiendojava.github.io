@@ -1,0 +1,16 @@
+title: "Your-Blog title"
+default_lang: en
+
+baseurl: "/"
+permalink: ":categories/:title"
+
+disqus_shortname: #disabled if left blank
+
+highlighter: pygments
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+
