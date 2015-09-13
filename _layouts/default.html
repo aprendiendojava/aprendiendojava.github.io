@@ -7,7 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
 	<script>
-		var baseurl = window.location.pathname.replace( '{{ page.url }}', '' ) + '/';
+		var baseurl = window.location.pathname.replace( '{{ page.url }}', '' );
+		baseurl = baseurl.slice(-1) == '/' ? baseurl : baseurl + '/';
 		$('base').attr( 'href', baseurl );
         </script>
 	<script src="https://cdn.jsdelivr.net/jquery.jscroll/2.2.4/jquery.jscroll.min.js"></script>
