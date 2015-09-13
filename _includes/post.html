@@ -1,6 +1,6 @@
 <article class="post">
 <header>
-	<h5><a href="{{ page.url }}">{{ page.title }}</a></h5>
+	<h5><a href="{{ page.url | remove_first:'/' }}">{{ page.title }}</a></h5>
 </header>
 {{ page.content }}
 <footer>

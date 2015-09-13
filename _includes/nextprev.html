@@ -5,7 +5,7 @@
 {% assign postlang = post.path | split: '/' | first %}
 
 	{% if currentPostFound and postlang == pagelang and post.slug != 'timeline' and post.slug != 'tagpage' and post.date <= page.date %}
-	<li><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}" class="previous">&larr;{{ post.title }}</a></li>
+	<li><a href="{{ post.url | remove_first:'/' }}" class="previous">&larr;{{ post.title }}</a></li>
 	{% break %}
 	{% endif %}
 
@@ -20,7 +20,7 @@
 {% assign postlang = post.path | split: '/' | first %}
 
 	{% if currentPostFound and postlang == pagelang and post.slug != 'timeline' and post.slug != 'tagpage' and post.date >= page.date %}
-	<li><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}&rarr;</a></li>
+	<li><a href="{{ post.url | remove_first:'/' }}">{{ post.title }}&rarr;</a></li>
 	{% break %}
 	{% endif %}
 

@@ -1,7 +1,6 @@
 title: "Your-Blog title"
 default_lang: en
 
-baseurl: "/"
 permalink: ":categories/:title"
 
 disqus_shortname: #disabled if left blank
