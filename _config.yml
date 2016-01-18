@@ -1,5 +1,5 @@
-title: "Your-Blog title"
-default_lang: en
+title: "Aprendiendo Java"
+default_lang: es
 
 permalink: ":categories/:title"
 

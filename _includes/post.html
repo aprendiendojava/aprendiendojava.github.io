@@ -2,7 +2,11 @@
 <header>
 	<h5><a href="{{ page.url | remove_first:'/' }}">{{ page.title }}</a></h5>
 </header>
-{{ page.content }}
+{% assign page_ext = page.path | split: '.' | last %}
+{{ page_ext }}
+{% if page_ext == 'md' %}
+	{{ page.content | markdownify }}
+{% endif %}
 <footer>
 	{% include disqus.html %}
 	<ul class="nextprev">
